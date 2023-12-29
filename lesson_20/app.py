@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine, Table, MetaData, Column, Integer, String
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Session
-from flask import Flask
 
 metadata = MetaData()
 engine = create_engine('postgresql+psycopg2://Somwlin:1548@localhost/auth_n_post')

@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block users %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+        {% for users in users %}
+            <tr>
+                <td>{{Users.name}}</td>
+                <td>{{Users.email}}</td>
+                <td>{{Users.age}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+<br>
+<br>
+<br>
+
+    <form action="" method="POST">
+        <input type="submit" name="upload" value="upload">
+    </form>
+
+{% endblock %}

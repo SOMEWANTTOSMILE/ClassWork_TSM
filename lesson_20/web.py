@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from app import Article, Author, engine
 from sqlalchemy.orm import Session
 import json
@@ -12,7 +12,7 @@ def hello():
     return "hello, World!"
 
 
-@app.route('/create_article',  methods=['GET', 'POST'])
+@app.route('/create_article',  methods=['POST'])
 def create_article():
     if request.method == 'POST':
         name_article = request.form['name_article']
