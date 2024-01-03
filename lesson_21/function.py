@@ -11,8 +11,23 @@ def get_users_information():
     for i in user_id:
         response = requests.get(f'http://185.225.232.111:8000/user/{i}')
         all_info = response.json()
-        data.append({"name": all_info.get('name'), "email":all_info.get('email'), "age": all_info.get('age')})
+        data.append({"name": all_info.get('name'), "email": all_info.get('email'), "age": all_info.get('age')})
     return data
+
+
+def database_request():
+    with Session(engine) as session:
+        user_info = get_users_information()
+        all_users = []
+        for user in user_info:
+            with Session(engine) as db:
+                name = user["name"]
+                email = user["email"]
+                age = user["age"]
+                users = [name, email, age]
+                all_users.append(users)
+        return all_users
+
 
 
 def upload_db():
@@ -39,4 +54,5 @@ def sync_db():
     upload_db()
 
 
-# print(delete_db())
+#
+print(database_request())

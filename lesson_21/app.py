@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 
 metadata = MetaData()
-engine = create_engine('postgresql+psycopg2://Somwlin:1548@localhost/users_info')
+engine = create_engine('postgresql+psycopg2://Somwl:1548@localhost/users_info')
 session = Session(bind=engine)
 
 
@@ -21,3 +21,4 @@ class Users(Base):
 
 
 Base.metadata.create_all(engine)
+

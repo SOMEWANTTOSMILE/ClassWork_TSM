@@ -1,27 +1,46 @@
-{% extends "index.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
 
-{% block users %}
+</head>
+<body>
+ <h2>Table:</h2>
     <table>
         <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Age</th>
         </tr>
-        {% for users in users %}
+        {% for user in all_users %}
             <tr>
-                <td>{{Users.name}}</td>
-                <td>{{Users.email}}</td>
-                <td>{{Users.age}}</td>
+                <td>{{user[0]}}</td>
+                <td>{{user[1]}}</td>
+                <td>{{user[2]}}</td>
             </tr>
         {% endfor %}
     </table>
 
-<br>
-<br>
-<br>
-
-    <form action="" method="POST">
-        <input type="submit" name="upload" value="upload">
+ <h1>all users</h1>
+    <form action="/upload" method="post" >
+        <input type="submit"  value="upload">
     </form>
-
-{% endblock %}
+    <form action="/delete" method="post" >
+        <input type="submit"  value="delete">
+    </form>
+        <form action="/sync" method="post" >
+    <input type="submit"  value="sync">
+    </form>
+</body>
+</html>
